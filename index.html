@@ -32,6 +32,22 @@
       console.log("Doc is ready.");
       var instaFeed = $("#instafeed");
       console.log($(window));
+      var qryArgs = window.location.hash.split("=");
+      igToken = qryArgs[1];
+      console.log(igToken);
+      
+      $.ajax({
+        type: 'GET',
+        url: "https://api.instagram.com/v1/users/self/feed?access_token=" + igToken,
+        dataType: 'jsonp',
+        success: function(data) {
+          console.log("data loaded from instagram:");
+          console.log(data);
+        };
+        error: function(error) {
+          console.log(error);
+        }
+      });
     });
   </script>
 </body>
