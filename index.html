@@ -43,7 +43,7 @@
         userData = igData.data; 
         for (var i = 0; i < userData.length; i++) {
           console.log(userData[i]);
-          var imageURL = userData[i].image.standard_resolution.url;
+          var imageURL = userData[i].images.standard_resolution.url;
           console.log(imageURL);
           instaFeed.append('<img src="' + imageURL + '" class = "img-circle"/>');
         }
