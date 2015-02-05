@@ -35,9 +35,18 @@
       var qryArgs = window.location.hash.split("=");
       igToken = qryArgs[1];
       console.log(igToken);
+
       
-      function createHTML() {
+      function createHTML(igData) {
         console.log("createHTML function fired.");
+        console.log(igData);
+        userData = igData.data; 
+        for (var i = 0; i < userData.length; i++) {
+          console.log(userData[i]);
+          var imageURL = userData[i].image.standard_resolution.url;
+          console.log(imageURL);
+          instaFeed.append('<img src="' + imageURL + '" class = "img-circle"/>');
+        }
       }
       
       function getData () {
@@ -47,7 +56,6 @@
           dataType: 'jsonp',
           success: function(data) {
             console.log("data loaded from instagram:");
-            console.log(data);
             createHTML(data);
           },
           error: function(error) {
@@ -55,6 +63,8 @@
           }
         });
       }
+      
+      getData();
     });
   </script>
 </body>
