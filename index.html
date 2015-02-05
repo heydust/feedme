@@ -45,7 +45,13 @@
           console.log(userData[i]);
           var imageURL = userData[i].images.standard_resolution.url;
           console.log(imageURL);
-          instaFeed.append('<img src="' + imageURL + '" class = "img-circle"/>');
+//          instaFeed.append('<img src="' + imageURL + '" class = "img-circle"/>');
+          var htmlString =  '<br>' +
+                                    '<div class="well">' + 
+                                      '<h1>' + userData[i].user.username + '</h1>' +  
+                                      '<img src="' + imageURL + '" class="img-thumbnail" />' +
+                                    '</div>';
+          instaFeed.append(htmlString);
         }
       }
       
